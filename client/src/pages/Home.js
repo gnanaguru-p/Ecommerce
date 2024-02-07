@@ -10,23 +10,25 @@ export default function Home() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        setLoading(true); // Set loading state to true when starting the fetch
-        setError(null); // Reset error state
-        fetch(`${process.env.REACT_APP_API_URL}/products?${searchParams}`)
-            .then(res => {
-                if (!res.ok) {
+        const fetchData = async () => {
+            setLoading(true); // Set loading state to true when starting the fetch
+            setError(null); // Reset error state
+
+            try {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/products?${searchParams}`);
+                if (!response.ok) {
                     throw new Error('Failed to fetch products');
                 }
-                return res.json();
-            })
-            .then(res => {
-                setProducts(res.products);
-                setLoading(false); // Set loading state to false after successful fetch
-            })
-            .catch(error => {
+                const data = await response.json();
+                setProducts(data.products);
+            } catch (error) {
                 setError(error.message); // Set error state if fetch fails
-                setLoading(false); // Set loading state to false if fetch fails
-            });
+            } finally {
+                setLoading(false); // Set loading state to false after fetch completes
+            }
+        };
+
+        fetchData();
     }, [searchParams]);
 
     return (
