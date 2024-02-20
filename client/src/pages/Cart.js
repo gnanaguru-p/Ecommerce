@@ -6,11 +6,11 @@ export default function Cart({ cartItems, setCartItems }) {
     const [complete, setComplete] = useState(false);
 
     function increaseQty(item) {
-        if (item.product.stock === item.qty) {
+        if (item.product.stock == item.qty) {
             return;
         }
         const updatedItems = cartItems.map((i) => {
-            if (i.product._id === item.product._id) {
+            if (i.product._id == item.product._id) {
                 i.qty++;
             }
             return i;
@@ -21,7 +21,7 @@ export default function Cart({ cartItems, setCartItems }) {
     function decreaseQty(item) {
         if (item.qty > 1) {
             const updatedItems = cartItems.map((i) => {
-                if (i.product._id === item.product._id) {
+                if (i.product._id == item.product._id) {
                     i.qty--;
                 }
                 return i;

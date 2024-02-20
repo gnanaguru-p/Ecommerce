@@ -36,7 +36,7 @@ export default function Home() {
                 <Loader />
             ) : error ? (
                 <div>Error: {error}</div>
-            ) : products.length === 0 ? (
+            ) : products.length == 0 ? (
                 <div>No products found</div>
             ) : (
                 <section id="products" className="container mt-5">

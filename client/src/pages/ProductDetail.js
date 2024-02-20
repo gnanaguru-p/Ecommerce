@@ -38,7 +38,7 @@ export default function ProductDetail({ cartItems, setCartItems, title }) {
   }
 
   function increaseQty() {
-    if (product.stock === qty) {
+    if (product.stock == qty) {
       return;
     }
     setQty((state) => state + 1);
@@ -102,7 +102,7 @@ export default function ProductDetail({ cartItems, setCartItems, title }) {
               <button
                 type="button"
                 onClick={addToCart}
-                disabled={product.stock === 0}
+                disabled={product.stock == 0}
                 id="cart_btn"
                 className="btn btn-primary d-inline ml-4"
               >
