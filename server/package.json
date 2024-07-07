@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Ecommercw Website",
+  "description": "Ecommerce Website",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
