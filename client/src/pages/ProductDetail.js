@@ -71,7 +71,7 @@ export default function ProductDetail({ cartItems, setCartItems }) {
             src={product.images[0].image}
             alt="Product"
             height="500"
-            width="500"
+            width="325"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
